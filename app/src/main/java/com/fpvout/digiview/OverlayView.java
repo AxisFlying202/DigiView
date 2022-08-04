@@ -42,7 +42,8 @@ public class OverlayView extends ConstraintLayout {
                 image = R.drawable.ic_goggles_disconnected_white;
                 break;
             case Error:
-                image = R.drawable.ic_goggles_disconnected_red;
+                //image = R.drawable.ic_goggles_disconnected_red;
+                image = R.drawable.ic_goggles_disconnected_white;
                 break;
         }
 

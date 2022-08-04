@@ -30,6 +30,8 @@
     <string name="show_watermark">Mostrar marca d\'água DigiView</string>
     <string name="links">Links</string>
     <string name="our_website">Nosso Website</string>
+    <string name="our_facebook">Facebook</string>
+    <string name="our_instagram">Instagram</string>
     <string name="discord_summary">Venha conversar conosco e com outros usuários DigiView</string>
     <string name="digiview_web_app">DigiView Web App</string>
     <string name="digiview_web_app_summary">Funciona no Chrome e navegadores baseados no Chrome, mesmo no Android!</string>

@@ -30,6 +30,8 @@
     <string name="show_watermark">显示 DigiView 水印</string>
     <string name="links">相关链接</string>
     <string name="our_website">我们的网站</string>
+    <string name="our_facebook">Facebook</string>
+    <string name="our_instagram">Instagram</string>
     <string name="discord_summary">与我们和其他 DigiView 用户聊天</string>
     <string name="digiview_web_app">DigiView Web应用</string>
     <string name="digiview_web_app_summary">可以在Chrome以及基于Chromium核心的浏览器中使用，甚至可以在Android上运行！</string>

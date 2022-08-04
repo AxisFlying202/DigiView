@@ -1,5 +1,7 @@
 package com.fpvout.digiview;
 
+import android.content.SharedPreferences;
+
 public class PerformancePreset {
     int h264ReaderMaxSyncFrameSize = 131072;
     int h264ReaderSampleTime = 10000;
@@ -52,12 +54,50 @@ public class PerformancePreset {
                 return getPreset(PresetType.AGGRESSIVE);
             case "legacy":
                 return getPreset(PresetType.LEGACY);
-            case "new_legacy":
+            case "legacy_buffered":
                 return getPreset(PresetType.LEGACY_BUFFERED);
             case "default":
             default:
                 return getPreset(PresetType.DEFAULT);
         }
+    }
+
+    static int getPresetChoiceId(String p) {
+        switch (p) {
+            case "conservative":
+                return R.id.preset_conservative;
+            case "aggressive":
+                return R.id.preset_aggressive;
+            case "legacy":
+                return R.id.preset_legacy;
+            case "legacy_buffered":
+                return R.id.preset_legacy_buffered;
+            case "default":
+            default:
+                return R.id.preset_default;
+        }
+    }
+
+    static void savePresetChoice(SharedPreferences sharedPreferences, String key, int choiceId) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        switch (choiceId) {
+            case R.id.preset_conservative:
+                editor.putString(key, "conservative");
+                break;
+            case R.id.preset_aggressive:
+                editor.putString(key, "aggressive");
+                break;
+            case R.id.preset_legacy:
+                editor.putString(key, "legacy");
+                break;
+            case R.id.preset_legacy_buffered:
+                editor.putString(key, "legacy_buffered");
+                break;
+            case R.id.preset_default:
+            default:
+                editor.putString(key, "default");
+        }
+        editor.commit();
     }
 
     public enum PresetType {

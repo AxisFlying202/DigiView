@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
     </SurfaceView>
 
-    <TextView
+    <!--TextView
         android:id="@+id/watermarkView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
         app:drawableTopCompat="@drawable/ic_goggles"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/fpvView"
-        style="@style/text_logo" />
+        style="@style/text_logo" /-->
 
     <com.fpvout.digiview.OverlayView
         android:id="@+id/overlayView"
@@ -42,6 +42,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settingsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/settingsButton"
         android:layout_width="wrap_content"
@@ -51,6 +57,19 @@
         android:clickable="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/exo_ic_settings" />
+        app:srcCompat="@drawable/ic_settings"
+        app:maxImageSize="40dp"
+        app:tint="@null"
+        app:fabSize="mini"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_settings"
+        android:textColor="@color/design_default_color_surface"
+        app:layout_constraintTop_toBottomOf="@id/settingsButton"
+        app:layout_constraintLeft_toLeftOf="@id/settingsButton"
+        app:layout_constraintRight_toRightOf="@id/settingsButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

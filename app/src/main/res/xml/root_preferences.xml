@@ -3,18 +3,23 @@
 
     <PreferenceCategory app:title="@string/performance">
 
-        <ListPreference
+        <com.fpvout.digiview.PresetPreference
+            android:key="VideoPreset"
+            android:title="@string/video_preset"
+            android:layout="@layout/video_preset_choice"/>
+
+        <!--ListPreference
             app:defaultValue="default"
             app:entries="@array/video_preset_titles"
             app:entryValues="@array/video_preset_values"
             app:key="VideoPreset"
             app:title="@string/video_preset"
             app:useSimpleSummaryProvider="true"
-            />
+            /-->
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/privacy">
+    <!--PreferenceCategory app:title="@string/privacy">
 
         <SwitchPreferenceCompat
             app:key="dataCollectionAccepted"
@@ -30,9 +35,9 @@
                 android:data="https://fpvout.com/privacy-policy/" />
         </Preference>
 
-    </PreferenceCategory>
+    </PreferenceCategory-->
 
-    <PreferenceCategory app:title="@string/video_player">
+    <!--PreferenceCategory app:title="@string/video_player">
 
         <SwitchPreferenceCompat
             app:key="VideoZoomedIn"
@@ -45,11 +50,15 @@
             app:title="@string/show_watermark"
             app:defaultValue="true" />
 
-    </PreferenceCategory>
+    </PreferenceCategory-->
 
     <PreferenceCategory app:title="@string/links">
 
         <Preference
+            android:title="@string/our_website"
+            android:layout="@layout/website_list"/>
+
+        <!--Preference
             android:title="@string/our_website"
             app:summary="fpvout.com">
             <intent
@@ -79,15 +88,16 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/fpvout" />
-        </Preference>
+        </Preference-->
 
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/about">
 
-        <com.fpvout.digiview.VersionPreference app:title="@string/app_Version" />
-
         <Preference
+            android:layout="@layout/license_list"/>
+
+        <!--Preference
             app:title="@string/copyright"
             app:summary="© 2021 FPV Out Club"
             android:selectable="false" />
@@ -98,8 +108,13 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/fpvout/DigiView-Android/blob/master/LICENSE" />
-        </Preference>
+        </Preference-->
 
     </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/app_Version">
+        <com.fpvout.digiview.VersionPreference/>
+    </PreferenceCategory>
+
 
 </PreferenceScreen>

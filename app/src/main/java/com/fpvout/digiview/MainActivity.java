@@ -27,9 +27,6 @@ import androidx.preference.PreferenceManager;
 
 import java.util.HashMap;
 
-import io.sentry.SentryLevel;
-import io.sentry.android.core.SentryAndroid;
-
 import static com.fpvout.digiview.VideoReaderExoplayer.VideoZoomedIn;
 
 public class MainActivity extends AppCompatActivity implements UsbDeviceListener {
@@ -40,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
     private int shortAnimationDuration;
     private float buttonAlpha = 1;
     private View settingsButton;
-    private View watermarkView;
+    private View settingsContainer;
+    //private View watermarkView;
     private OverlayView overlayView;
     PendingIntent permissionIntent;
     UsbDeviceBroadcastReceiver usbDeviceBroadcastReceiver;
@@ -62,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
         setContentView(R.layout.activity_main);
 
         // check Data Collection agreement
-        checkDataCollectionAgreement();
+        //checkDataCollectionAgreement();
 
         // Hide top bar and status bar
         View decorView = getWindow().getDecorView();
@@ -90,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
         registerReceiver(usbDeviceBroadcastReceiver, filterDetached);
 
         shortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
-        watermarkView = findViewById(R.id.watermarkView);
+        //watermarkView = findViewById(R.id.watermarkView);
         overlayView = findViewById(R.id.overlayView);
         fpvView = findViewById(R.id.fpvView);
 
@@ -102,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
                 v.getContext().startActivity(intent);
             }
         });
+
+        settingsContainer = findViewById(R.id.settingsContainer);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
 
         return super.onTouchEvent(event);
     }
-
+/*
     private void updateWatermark() {
         if (overlayView.getVisibility() == View.VISIBLE) {
             watermarkView.setAlpha(0);
@@ -171,19 +171,22 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
             watermarkView.setAlpha(0F);
         }
     }
-
+*/
     private void updateVideoZoom() {
+        /*
         if (sharedPreferences.getBoolean(VideoZoomedIn, true)) {
             mVideoReader.zoomIn();
         } else {
             mVideoReader.zoomOut();
         }
+         */
+        mVideoReader.zoomOut();
     }
 
     private void cancelButtonAnimation() {
-        Handler handler = settingsButton.getHandler();
+        Handler handler = settingsContainer.getHandler();
         if (handler != null) {
-            settingsButton.getHandler().removeCallbacksAndMessages(null);
+            settingsContainer.getHandler().removeCallbacksAndMessages(null);
         }
     }
 
@@ -192,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
 
         if (overlayView.getVisibility() == View.VISIBLE) {
             buttonAlpha = 1;
-            settingsButton.setAlpha(1);
+            settingsContainer.setAlpha(1);
         }
     }
 
@@ -208,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
             buttonAlpha = 1;
         }
 
-        settingsButton.animate()
+        settingsContainer.animate()
                 .alpha(buttonAlpha)
                 .setDuration(shortAnimationDuration)
                 .setListener(new AnimatorListenerAdapter() {
@@ -223,15 +226,16 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
         if (overlayView.getVisibility() == View.VISIBLE) return;
         if (buttonAlpha == 0) return;
 
-        settingsButton.postDelayed(new Runnable() {
+        settingsContainer.postDelayed(new Runnable() {
             @Override
             public void run() {
                 buttonAlpha = 0;
-                settingsButton.animate()
+                settingsContainer.animate()
                         .alpha(0)
                         .setDuration(shortAnimationDuration);
             }
         }, 3000);
+
     }
 
     @Override
@@ -278,7 +282,7 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
         mVideoReader.setUsbMaskConnection(mUsbMaskConnection);
         overlayView.hide();
         mVideoReader.start();
-        updateWatermark();
+        //updateWatermark();
         autoHideSettingsButton();
         showOverlay(R.string.waiting_for_video, OverlayStatus.Connected);
     }
@@ -309,9 +313,9 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
             }
         }
 
-        settingsButton.setAlpha(1);
+        settingsContainer.setAlpha(1);
         autoHideSettingsButton();
-        updateWatermark();
+        //updateWatermark();
         updateVideoZoom();
     }
 
@@ -328,13 +332,13 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
 
     private void showOverlay(int textId, OverlayStatus connected) {
         overlayView.show(textId, connected);
-        updateWatermark();
+        //updateWatermark();
         showSettingsButton();
     }
 
     private void hideOverlay() {
         overlayView.hide();
-        updateWatermark();
+        //updateWatermark();
         showSettingsButton();
         autoHideSettingsButton();
     }
@@ -368,7 +372,7 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
         mVideoReader.stop();
         usbConnected = false;
     }
-
+/*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -406,5 +410,5 @@ public class MainActivity extends AppCompatActivity implements UsbDeviceListener
         }
 
     }
-
+*/
 }

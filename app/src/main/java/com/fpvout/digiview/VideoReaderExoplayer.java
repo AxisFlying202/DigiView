@@ -62,7 +62,8 @@ public class VideoReaderExoplayer {
     }
 
     public void start() {
-        zoomedIn = sharedPreferences.getBoolean(VideoZoomedIn, true);
+        //jones zoomedIn = sharedPreferences.getBoolean(VideoZoomedIn, true);
+        zoomedIn = false;
         performancePreset = PerformancePreset.getPreset(sharedPreferences.getString(VideoPreset, "default"));
 
             DefaultLoadControl loadControl = new DefaultLoadControl.Builder().setBufferDurationsMs(performancePreset.exoPlayerMinBufferMs, performancePreset.exoPlayerMaxBufferMs, performancePreset.exoPlayerBufferForPlaybackMs, performancePreset.exoPlayerBufferForPlaybackAfterRebufferMs).build();
@@ -155,6 +156,7 @@ public class VideoReaderExoplayer {
     }
 
     public void toggleZoom() {
+        /*
         zoomedIn = !zoomedIn;
 
         SharedPreferences.Editor preferencesEditor = sharedPreferences.edit();
@@ -174,6 +176,7 @@ public class VideoReaderExoplayer {
             }
 
             surfaceView.setLayoutParams(params);
+         */
         }
 
         public void zoomIn() {

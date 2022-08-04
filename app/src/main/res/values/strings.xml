@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">DigiView</string>
+    <string name="app_name" translatable="false">AXIS LIVE</string>
     <string name="digiview_feed">DigiView\nfeed</string>
     <string name="waiting_for_usb_device">Please Connect Goggles</string>
     <string name="usb_device_approved">USB device approved</string>
@@ -31,11 +31,14 @@
     <string name="show_watermark">Show DigiView watermark</string>
     <string name="links">Links</string>
     <string name="our_website">Our Website</string>
+    <string name="our_facebook">Our Facebook</string>
+    <string name="our_instagram">Our Instgram</string>
     <string name="discord_summary">Come chat with us and other DigiView users</string>
     <string name="digiview_web_app">DigiView Web App</string>
     <string name="digiview_web_app_summary">Works in Chrome and Chrome-based browsers, even on Android!</string>
     <string name="github_summary">All our code is open source</string>
     <string name="about">About</string>
+    <string name="license_statement">Powered by DigiView</string>
     <string name="app_Version">App Version</string>
     <string name="copyright">Copyright</string>
     <string name="open_source_license">Open-Source License</string>

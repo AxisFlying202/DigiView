@@ -28,6 +28,8 @@
     <string name="show_watermark">Afficher le logo DigiView en filigrane</string>
     <string name="links">Liens</string>
     <string name="our_website">Notre site internet</string>
+    <string name="our_facebook">Facebook</string>
+    <string name="our_instagram">Instagram</string>
     <string name="discord_summary">Venez discuter avec nous sur Discord</string>
     <string name="digiview_web_app">L\'application web DigiView</string>
     <string name="digiview_web_app_summary">Fonctionne sur Chrome et les navigateurs basés sur Chrome, même sur Android !</string>
